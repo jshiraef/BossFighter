@@ -1,3 +1,4 @@
+package com.BossFighter.joe;
 
 public class BossMenu {
 
