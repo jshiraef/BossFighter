@@ -53,10 +53,10 @@ public class Office {
 				if(map.getTileId(x, y, background) == 1){
 					bg[x][y].id = Tile.floor;
 				}
-				if(map.getTileId(x, y, background) == 2){
+				if(map.getTileId(x, y, item) == 2){
 					bg[x][y].id = Tile.desk;
 				}
-				if(map.getTileId(x, y, background) == 3){
+				if(map.getTileId(x, y, solids) == 3){
 					bg[x][y].id = Tile.carpet;
 				}
 				
@@ -67,7 +67,7 @@ public class Office {
 			
 	}
 	
-	public void tick() {
+	public void update() {
 		
 	}
 	

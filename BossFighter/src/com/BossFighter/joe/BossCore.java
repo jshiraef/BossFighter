@@ -28,6 +28,8 @@ public class BossCore extends Applet implements Runnable{
 	
 	private Image screen;
 	
+	public Office office;
+	
 	public static Dimension screenSize = new Dimension (640, 480);
 	public static Dimension pixel = new Dimension (screenSize.width, screenSize.height);
 	public static Dimension size;
@@ -68,14 +70,21 @@ public class BossCore extends Applet implements Runnable{
 	
 				}
 	
-	public void tick() {
-	
+	public void update() {
+		
+		
+		frame.pack();
+		office.update();
+		
 	
 			}
 	
 	public void render() {
 		
 		Graphics g = screen.getGraphics();
+		
+		office.render(g, (int) X, (int) Y, (pixel.width/Tile.size) + 2, (pixel.height/Tile.size) + 2);
+		
 		
 		g = this.getGraphics();
 		g.drawImage(screen, 0, 0, screenSize.width, screenSize.height, 0, 0, pixel.width, pixel.height, null);
@@ -90,7 +99,7 @@ public class BossCore extends Applet implements Runnable{
 		screen = createVolatileImage(pixel.width, pixel.height);
 		
 		while(run) {
-			tick();
+			update();
 			render();
 			
 			try {
@@ -104,8 +113,12 @@ public class BossCore extends Applet implements Runnable{
 		
 	
 	
-	public void init() {
+	public void start() {
 		requestFocus();
+		
+		//define classes
+		office = new Office(1);
+		new Tile();
 		
 		run = true;
 		
