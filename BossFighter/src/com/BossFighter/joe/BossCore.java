@@ -18,8 +18,8 @@ public class BossCore extends Applet implements Runnable{
 	
 	public static final int res = 1;
 	
-	public static double Y = 0;
-	public static double X = 0;
+	public static float Y = 0;
+	public static float X = 0;
 	
 	public static int dir = 0;
 	
